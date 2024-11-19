@@ -10,9 +10,9 @@ class RoleController extends Controller
 {
     // Show the form to create a new role
     public function create()
-    {
-        return view('admin.create-role');
-    }
+{
+    return view('admin.create-role');
+}
 
     // Store the newly created role
     public function store(Request $request)
@@ -32,4 +32,5 @@ class RoleController extends Controller
         // Redirect to a success page or back to the roles list
         return redirect()->route('admin.roles.create')->with('success', 'Role created successfully.');
     }
+
 }
