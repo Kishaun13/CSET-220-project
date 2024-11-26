@@ -18,8 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password', 'approved',
+        'name', 'email', 'password', 'approved', 'role_id', 'is_admin',
     ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -38,6 +39,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Check if the user is an admin.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        // Assuming you have an 'is_admin' column in your users table
+        return $this->is_admin;
+    }
 }
-
-

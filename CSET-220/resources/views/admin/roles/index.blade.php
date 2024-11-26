@@ -1,5 +1,6 @@
-<!-- create.blade.php -->
+@extends('layouts.app')
 
+@section('content')
 <div class="container" style="margin-top: 50px; font-family: Arial, sans-serif; background-color: #f8f9fa;">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -69,3 +70,4 @@
         </div>
     </div>
 </div>
+@endsection
