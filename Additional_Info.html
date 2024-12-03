@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Additional_info.css">
+    <script src="Role.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Additional Information of Patient</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Additional Information of Patient</h2>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="patient-id">Patient ID:</label>
+        <input type="text" id="patient-id" value="123456">
+      </div>
+      <div class="form-group">
+        <label for="patient-name">Patient Name:</label>
+        <input type="text" id="patient-name" value="John Doe">
+      </div>
+      <div class="form-group">
+        <label for="group">Group:</label>
+        <input type="text" id="group" placeholder="Enter Group">
+      </div>
+      <div class="form-group">
+        <label for="admission-date">Admission Date:</label>
+        <input type="date" id="admission-date">
+      </div>
+      <div class="buttons">
+        <button type="submit">Ok</button>
+        <button type="button" class="cancel">Cancel</button>
+      </div>
+      <div class="note">
+        <p>This page is accessed by Admin and Supervisor only.</p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

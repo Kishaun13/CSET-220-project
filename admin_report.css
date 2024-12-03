@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f8fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Styles */
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Form Styles */
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    color: #555;
+    width: 30%;
+  }
+  
+  .form-group input {
+    width: 65%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Table Styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table thead {
+    background-color: #f4f4f9;
+  }
+  
+  table th,
+  table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  table td {
+    color: #333;
+  }
+  
+  table td:empty {
+    background-color: #f9f9f9;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Note Styles */
+  .note {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+  }
