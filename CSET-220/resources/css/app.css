@@ -1,0 +1,72 @@
+/* resources/css/app.css or within a <style> tag in your Blade layout */
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+a {
+    color: #bb86fc;
+}
+
+a:hover {
+    color: #3700b3;
+}
+
+.navbar, .card, .form-control, .btn {
+    background-color: #1f1f1f;
+    border-color: #3700b3;
+    color: #e0e0e0;
+}
+
+.navbar a, .card-header, .btn-primary {
+    color: #bb86fc;
+}
+
+.navbar a:hover, .btn-primary:hover {
+    color: #3700b3;
+}
+
+.form-control {
+    color: #e0e0e0;
+    background-color: #1f1f1f;
+    border: 1px solid #3700b3;
+}
+
+.form-control:focus {
+    border-color: #bb86fc;
+    box-shadow: 0 0 0 0.2rem rgba(187, 134, 252, 0.25);
+}
+
+.invalid-feedback {
+    color: #cf6679;
+}
+
+.alert-success {
+    background-color: #2e7d32;
+    color: #e0e0e0;
+}
+
+.alert-danger {
+    background-color: #b00020;
+    color: #e0e0e0;
+}
+
+.card-header {
+    background-color: #1f1f1f;
+    border-bottom: 1px solid #3700b3;
+}
+
+.card-body {
+    background-color: #1f1f1f;
+}
+
+.btn-primary {
+    background-color: #bb86fc;
+    border-color: #3700b3;
+}
+
+.btn-primary:hover {
+    background-color: #3700b3;
+    border-color: #3700b3;
+}
