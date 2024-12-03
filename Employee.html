@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management</title>
+  <link rel="stylesheet" href="employee.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Employee Management</h1>
+    <p>This page is accessed by Admin and Supervisor, but only Admin can update salaries.</p>
+
+ 
+    <div class="row">
+      <label class="label" for="search-id">Search by Employee ID:</label>
+      <div class="input-field">
+        <input type="text" id="search-id" placeholder="Enter Employee ID">
+      </div>
+    </div>
+    <div class="row">
+      <label class="label" for="search-name">Search by Name:</label>
+      <div class="input-field">
+        <input type="text" id="search-name" placeholder="Enter Name">
+      </div>
+    </div>
+    <div class="row">
+      <label class="label" for="search-role">Search by Role:</label>
+      <div class="input-field">
+        <input type="text" id="search-role" placeholder="Enter Role">
+      </div>
+    </div>
+    <button id="search-btn" class="btn">Search</button>
+
+    
+    <table id="employee-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      ''
+      </tbody>
+    </table>
+
+    <!-- Update Salary Section (Admin only) -->
+    <form id="salary-form" style="display: none;">
+      <h3>Update Employee Salary</h3>
+      <div class="row">
+        <label class="label" for="emp-id">Employee ID:</label>
+        <div class="input-field">
+          <input type="text" id="emp-id" readonly>
+        </div>
+      </div>
+      <div class="row">
+        <label class="label" for="new-salary">New Salary:</label>
+        <div class="input-field">
+          <input type="number" id="new-salary" min="0">
+        </div>
+      </div>
+      <button type="button" id="update-salary-btn" class="btn">Update</button>
+      <button type="button" id="cancel-btn" class="btn">Cancel</button>
+    </form>
+  </div>
+
+  <script src="employee.js"></script>
+</body>
+</html>

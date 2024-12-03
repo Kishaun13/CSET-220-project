@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin's Report</title>
+  <link rel="stylesheet" href="admin_report.css"> 
+  <script src="admin_report.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Admin's Report</h2>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+      </div>
+
+      <div class="form-group">
+        <label for="missed-activity">Missed Patient Activity:</label>
+        <input type="text" id="missed-activity" placeholder="Enter missed activity details">
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Patient's Name</th>
+            <th>Doctor's Name</th>
+            <th>Doctor's Appointment</th>
+            <th>Caregiver's Name</th>
+            <th>Morning Medicine</th>
+            <th>Afternoon Medicine</th>
+            <th>Night Medicine</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Dinner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John Doe</td>
+            <td>Dr. Smith</td>
+            <td>10:00 AM</td>
+            <td>Jane Doe</td>
+            <td>✔</td>
+            <td>✔</td>
+            <td>✔</td>
+            <td>✔</td>
+            <td>✔</td>
+            <td>✔</td>
+          </tr>
+          <tr>
+            <td>Mary Smith</td>
+            <td>Dr. Brown</td>
+            <td>11:30 AM</td>
+            <td>Jack Johnson</td>
+            <td>✔</td>
+            <td>✔</td>
+            <td>✘</td>
+            <td>✔</td>
+            <td>✘</td>
+            <td>✔</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <p>This page is accessed by Admin and Supervisor. It only shows the missed activity.</p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
