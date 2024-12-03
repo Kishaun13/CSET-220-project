@@ -40,6 +40,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.employees.index') }}">Employees</a>
+                                </li>
                             @endif
                         @endauth
                     </ul>

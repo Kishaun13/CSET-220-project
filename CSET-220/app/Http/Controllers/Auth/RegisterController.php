@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Patient;
+use App\Models\Employee;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -31,13 +32,20 @@ class RegisterController extends Controller
             'role' => ['required', 'exists:roles,id'],
         ];
 
-        if (isset($data['role']) && strtolower(Role::find($data['role'])->role_name) === 'patient') {
-            $rules = array_merge($rules, [
-                'date_of_birth' => ['required', 'date'],
-                'family_code' => ['required', 'string', 'max:255'],
-                'emergency_contact_number' => ['required', 'string', 'max:20'],
-                'relation_to_patient' => ['required', 'string', 'max:255'],
-            ]);
+        if (isset($data['role'])) {
+            $role = Role::find($data['role']);
+            if ($role && strtolower($role->role_name) === 'patient') {
+                $rules = array_merge($rules, [
+                    'date_of_birth' => ['required', 'date'],
+                    'family_code' => ['required', 'string', 'max:255'],
+                    'emergency_contact_number' => ['required', 'string', 'max:20'],
+                    'relation_to_patient' => ['required', 'string', 'max:255'],
+                ]);
+            } elseif ($role && in_array(strtolower($role->role_name), ['doctor', 'caretaker', 'supervisor'])) {
+                $rules = array_merge($rules, [
+                    'phone' => ['required', 'string', 'max:20'],
+                ]);
+            }
         }
 
         return Validator::make($data, $rules);
@@ -63,6 +71,15 @@ class RegisterController extends Controller
                 'family_code' => $data['family_code'],
                 'emergency_contact_number' => $data['emergency_contact_number'],
                 'relation_to_patient' => $data['relation_to_patient'],
+            ]);
+        } elseif ($role && in_array(strtolower($role->role_name), ['doctor', 'caretaker', 'supervisor'])) {
+            Employee::create([
+                'user_id' => $user->id,
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
+                'role_id' => $data['role'],
+                'salary' => 0, // Default salary value
             ]);
         }
 

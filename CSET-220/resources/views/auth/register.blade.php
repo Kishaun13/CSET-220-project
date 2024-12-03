@@ -64,10 +64,10 @@
                         <div class="row mb-3">
                             <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
                             <div class="col-md-6">
-                                <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required onchange="togglePatientFields()">
+                                <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required onchange="toggleFields()">
                                     <option value="">{{ __('Select Role') }}</option>
                                     @foreach($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->role_name }}</option>
+                                        <option value="{{ $role->id }}" data-is-employee="{{ in_array(strtolower($role->role_name), ['doctor', 'caretaker', 'supervisor']) ? 'true' : 'false' }}" data-is-patient="{{ strtolower($role->role_name) === 'patient' ? 'true' : 'false' }}">{{ $role->role_name }}</option>
                                     @endforeach
                                 </select>
                                 @error('role')
@@ -133,6 +133,22 @@
                             </div>
                         </div>
 
+                        <!-- Employee Fields -->
+                        <div id="employee-fields" style="display: none;">
+                            <!-- Phone Input -->
+                            <div class="row mb-3">
+                                <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
+                                <div class="col-md-6">
+                                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone">
+                                    @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Register Button -->
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -152,15 +168,23 @@
 </div>
 
 <script>
-    function togglePatientFields() {
+    function toggleFields() {
         var roleSelect = document.getElementById('role');
         var patientFields = document.getElementById('patient-fields');
-        var selectedRole = roleSelect.options[roleSelect.selectedIndex].text.toLowerCase();
+        var employeeFields = document.getElementById('employee-fields');
+        var selectedOption = roleSelect.options[roleSelect.selectedIndex];
+        var isEmployee = selectedOption.getAttribute('data-is-employee') === 'true';
+        var isPatient = selectedOption.getAttribute('data-is-patient') === 'true';
 
-        if (selectedRole === 'patient') {
+        if (isEmployee) {
+            employeeFields.style.display = 'block';
+            patientFields.style.display = 'none';
+        } else if (isPatient) {
             patientFields.style.display = 'block';
+            employeeFields.style.display = 'none';
         } else {
             patientFields.style.display = 'none';
+            employeeFields.style.display = 'none';
         }
     }
 </script>
