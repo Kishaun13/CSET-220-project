@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Home</title>
+    <link rel="stylesheet" href="Doctorshome.css">
+ 
+</head>
+<body>
+    <div class="container">
+        <h1>Doctor's Home</h1>
+
+        <div class="info">
+            <p>This page is accessed by the specific doctor who logs in.</p>
+        </div>
+
+        <div class="form-section">
+            <label for="patient">Patient</label>
+            <input type="text" id="patient" placeholder="Enter patient name">
+
+            <label for="date">Date</label>
+            <input type="date" id="date">
+
+            <button>Search</button>
+        </div>
+
+        <div class="appointments-section">
+            <h2>Appointments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Comment</th>
+                        <th>Morning Med</th>
+                        <th>Afternoon Med</th>
+                        <th>Night Med</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Add appointment rows here -->
+                    <tr>
+                        <td>John Doe</td>
+                        <td>2024-12-04</td>
+                        <td>Follow-up</td>
+                        <td>Med1</td>
+                        <td>Med2</td>
+                        <td>Med3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info">
+            <p>Upcoming appointments from today until the specified date.</p>
+        </div>
+    </div>
+</body>
+</html>
