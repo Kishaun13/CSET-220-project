@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="Payment.css">
+    <script src="Payment.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <div class="note">
+                <li>$10 for every day</li>
+                <li>$50 for every appointment</li>
+                <li>$5 for every medicine/month</li>
+            </ul>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="patient-id">Patient ID:</label>
+                <input type="text" id="patient-id" placeholder="Enter Patient ID" required>
+            </div>
+            <div class="form-group">
+                <label for="total-due">Total Due:</label>
+                <input type="text" id="total-due" placeholder="Enter Total Due" required>
+            </div>
+            <div class="form-group">
+                <label for="new-payment">New Payment:</label>
+                <input type="text" id="new-payment" placeholder="Enter New Payment" required>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="ok">OK</button>
+                <button type="button" class="cancel" onclick="resetForm()">Cancel</button>
+            </div>
+            <div class="update-button">
+                <button type="button" onclick="updatePayment()">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Reset the form
+        function resetForm() {
+            document.querySelector('form').reset();
+        }
+
+        // Simulate payment update
+        function updatePayment() {
+            alert("Payment updated successfully!");
+        }
+    </script>
+</body>
+</html>
