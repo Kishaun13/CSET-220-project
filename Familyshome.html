@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Member's Home</title>
+    <link rel="stylesheet" href="Familyshome.css">
+    <script src="Familyshome.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Family Member's Home</h1>
+        <div class="note">
+            This page is accessed by Family members. They have to fill up both family code and patient ID to see someone's details.
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="form-group">
+                <label for="family-code">Family Code:</label>
+                <input type="text" id="family-code" placeholder="Enter Family Code" required>
+            </div>
+            <div class="form-group">
+                <label for="patient-id">Patient ID:</label>
+                <input type="text" id="patient-id" placeholder="Enter Patient ID" required>
+            </div>
+            <div class="grid">
+                <input type="text" placeholder="Doctor's Name">
+                <input type="text" placeholder="Doctor's Appointment">
+                <input type="text" placeholder="Caregiver's Name">
+                <input type="text" placeholder="Morning Medicine">
+                <input type="text" placeholder="Afternoon Medicine">
+                <input type="text" placeholder="Night Medicine">
+                <input type="text" placeholder="Breakfast">
+                <input type="text" placeholder="Lunch">
+                <input type="text" placeholder="Dinner">
+            </div>
+            <div class="buttons">
+                <button type="submit" class="ok">OK</button>
+                <button type="button" class="cancel" onclick="resetForm()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Reset the form
+        function resetForm() {
+            document.querySelector('form').reset();
+        }
+    </script>
+</body>
+</html>
