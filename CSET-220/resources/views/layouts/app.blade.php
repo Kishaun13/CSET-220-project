@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Hearthkeeper') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -35,13 +35,29 @@
                         @auth
                             @if (Auth::user()->isAdmin())
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.roles.index') }}">Roles</a>
+                                    <a class="nav-link" href="{{ route('admin.roles.index') }}">Role Creation</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin.users.index') }}">Users</a>
+                                    <a class="nav-link" href="{{ route('admin.users.index') }}">Account Approval</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.employees.index') }}">Employees</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.showPatients') }}">Patients</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.rosters.create') }}">Roster Creation</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.rosters.index') }}">View Rosters</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.appointments.create') }}">Appointments</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('patient.home') }}">Patient Home</a>
                                 </li>
                             @endif
                         @endauth

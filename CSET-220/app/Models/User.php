@@ -1,8 +1,6 @@
 <?php
-
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,7 +45,17 @@ class User extends Authenticatable
      */
     public function isAdmin()
     {
-        // Assuming you have an 'is_admin' column in your users table
         return $this->is_admin;
     }
+
+/**
+ * Check if the user is a supervisor.
+ *
+ * @return bool
+ */
+public function isSupervisor()
+{
+    
+    return $this->role_id === 10; 
+}
 }

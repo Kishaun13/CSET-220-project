@@ -33,19 +33,7 @@ class RegisterController extends Controller
         ];
 
         if (isset($data['role'])) {
-            $role = Role::find($data['role']);
-            if ($role && strtolower($role->role_name) === 'patient') {
-                $rules = array_merge($rules, [
-                    'date_of_birth' => ['required', 'date'],
-                    'family_code' => ['required', 'string', 'max:255'],
-                    'emergency_contact_number' => ['required', 'string', 'max:20'],
-                    'relation_to_patient' => ['required', 'string', 'max:255'],
-                ]);
-            } elseif ($role && in_array(strtolower($role->role_name), ['doctor', 'caretaker', 'supervisor'])) {
-                $rules = array_merge($rules, [
-                    'phone' => ['required', 'string', 'max:20'],
-                ]);
-            }
+            // Additional validation rules based on role can be added here
         }
 
         return Validator::make($data, $rules);
@@ -67,6 +55,7 @@ class RegisterController extends Controller
         if ($role && strtolower($role->role_name) === 'patient') {
             Patient::create([
                 'user_id' => $user->id,
+                'name' => $data['name'], 
                 'date_of_birth' => $data['date_of_birth'],
                 'family_code' => $data['family_code'],
                 'emergency_contact_number' => $data['emergency_contact_number'],
