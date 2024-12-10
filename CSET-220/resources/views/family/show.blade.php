@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Patient Home Page</h1>
+    <h1>Patient Information</h1>
     <div class="card">
         <div class="card-header">
             Patient Details
@@ -10,7 +10,10 @@
         <div class="card-body">
             <p><strong>Patient ID:</strong> {{ $patient->patient_id }}</p>
             <p><strong>Patient Name:</strong> {{ $patient->name }}</p>
+            <p><strong>Date of Birth:</strong> {{ $patient->date_of_birth }}</p>
             <p><strong>Family Code:</strong> {{ $patient->family_code }}</p>
+            <p><strong>Emergency Contact Number:</strong> {{ $patient->emergency_contact_number }}</p>
+            <p><strong>Relation to Patient:</strong> {{ $patient->relation_to_patient }}</p>
             <p><strong>Morning Medicine:</strong> {{ $patient->morning_med }}</p>
             <p><strong>Afternoon Medicine:</strong> {{ $patient->afternoon_med }}</p>
             <p><strong>Night Medicine:</strong> {{ $patient->night_med }}</p>

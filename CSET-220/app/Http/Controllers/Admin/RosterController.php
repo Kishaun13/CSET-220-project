@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -45,5 +46,16 @@ class RosterController extends Controller
         $roster->delete();
 
         return redirect()->route('admin.rosters.index')->with('success', 'Roster deleted successfully.');
+    }
+
+    public function availableRosters(Request $request)
+    {
+        $date = $request->query('date');
+        if ($date) {
+            $rosters = Roster::whereDate('date', $date)->get();
+        } else {
+            $rosters = Roster::all();
+        }
+        return view('available-rosters', compact('rosters', 'date'));
     }
 }

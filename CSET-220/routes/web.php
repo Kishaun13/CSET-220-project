@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\PatientsController;
 use App\Http\Controllers\Admin\RosterController;
 use App\Http\Controllers\Admin\AppointmentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\CaretakerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/available-rosters', [RosterController::class, 'availableRosters'])->name('available.rosters');
 
 Route::get('/', function () {
     return view('landing');
@@ -32,6 +35,15 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/patient/home', [HomeController::class, 'patientHome'])->name('patient.home');
+    Route::get('/doctor/home', [DoctorController::class, 'home'])->name('doctor.home');
+    Route::get('/doctor/patient/{patient_id}', [DoctorController::class, 'patient'])->name('doctor.patient');
+    Route::post('/doctor/patient/{patient_id}', [DoctorController::class, 'updatePatient'])->name('doctor.updatePatient');
+    Route::get('/family/home', [HomeController::class, 'familyHome'])->name('family.home');
+    Route::post('/family/home', [HomeController::class, 'showFamilyPatient'])->name('family.showPatient');
+    Route::get('/caretaker/home', [CaretakerController::class, 'home'])->name('caretaker.home');
+    Route::get('/caretaker/patient/{patient_id}', [CaretakerController::class, 'viewPatient'])->name('caretaker.patient');
+    Route::post('/caretaker/patient/{patient_id}/update-logs', [CaretakerController::class, 'updateLogs'])->name('caretaker.updateLogs');
+    Route::post('/caretaker/patient/{patient_id}', [CaretakerController::class, 'updatePatient'])->name('caretaker.updatePatient');
 });
 
 Route::middleware(['Admin'])->group(function () {
